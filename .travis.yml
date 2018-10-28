@@ -38,6 +38,9 @@ matrix:
         packages:
         - clang-5.0
 
+compiler:
+- gcc
+- clang
 
 
 script:
