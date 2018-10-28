@@ -11,6 +11,7 @@ matrix:
         - ubuntu-toolchain-r-test
         packages:
         - g++-7
+        - clang-6
   - os: linux
     dist: xenial
     addons:
@@ -19,10 +20,12 @@ matrix:
         - ubuntu-toolchain-r-test
         packages:
         - g++-7
+        - clang-6
 
 compiler:
 - gcc
+- clang
 
 script:
 - cmake . -Bbuild && cd build && make -j8
-- ./bin/test
+- ./bin/run_tests
