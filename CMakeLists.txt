@@ -3,13 +3,14 @@ project(BinaryTree)
 
 set(CMAKE_CXX_STANDARD 14)
 
-file(GLOB SUBDIRS "${CMAKE_CURRENT_SOURCE_DIR}/third_parties/*")
+file(GLOB SUBDIRS "${CMAKE_CURRENT_SOURCE_DIR}/third_party/*")
 include_directories(${SUBDIRS})
+add_subdirectory(${SUBDIRS})
 
 
 set(MODULE      "BinaryTree")
 set(LIBRARY     "Lib${MODULE}")
-set(TESTS       "test")
+set(TESTS       "run_tests")
 
 set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
