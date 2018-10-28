@@ -23,24 +23,24 @@ matrix:
         - g++-7
   - os: linux
     dist: trusty
-    env: NAME="Ubuntu 14.04 - clang-5.0"
+    env: NAME="Ubuntu 14.04 - g++-6"
     addons:
       apt:
         sources:
         - ubuntu-toolchain-r-test
         - llvm-toolchain-trusty-5.0
         packages:
-        - clang-5.0
+        - g++-6
   - os: linux
     dist: xenial
-    env: NAME="Ubuntu 16.04 - clang-5.0"
+    env: NAME="Ubuntu 16.04 - g++-6"
     addons:
       apt:
         sources:
         - ubuntu-toolchain-r-test
         - llvm-toolchain-trusty-5.0
         packages:
-        - clang-5.0
+        - g++-6
 
 
 script:
