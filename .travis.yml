@@ -1,13 +1,11 @@
-
 language: cpp
 
 matrix:
   include:
   - os: linux
-    env: 
+    env:
     - NAME="Ubuntu 14.04 - g++-7"
-    - CXX=g++-7
-    - CC=gcc-7
+    - MATRIX_EVAL="CC=gcc-7 && CXX=g++-7"
     dist: trusty
     addons:
       apt:
@@ -18,10 +16,9 @@ matrix:
         - gcc-7
   - os: linux
     dist: xenial
-    env: 
+    env:
     - NAME="Ubuntu 16.04 - g++-7"
-    - CXX=g++-7
-    - CC=gcc-7
+    - MATRIX_EVAL="CC=gcc-7 && CXX=g++-7"
     addons:
       apt:
         sources:
@@ -31,10 +28,9 @@ matrix:
         - gcc-7
   - os: linux
     dist: trusty
-    env: 
+    env:
     - NAME="Ubuntu 14.04 - g++-6"
-    - CXX=g++-6
-    - CC=gcc-6
+    - MATRIX_EVAL="CC=gcc-6 && CXX=g++-6"
     addons:
       apt:
         sources:
@@ -45,10 +41,9 @@ matrix:
         - gcc-6
   - os: linux
     dist: xenial
-    env: 
+    env:
     - NAME="Ubuntu 16.04 - g++-6"
-    - CXX=g++-6
-    - CC=gcc-6
+    - MATRIX_EVAL="CC=gcc-6 && CXX=g++-6"
     addons:
       apt:
         sources:
@@ -58,6 +53,8 @@ matrix:
         - g++-6
         - gcc-6
 
+before_install:
+- eval "${MATRIX_EVAL}"
 
 script:
 - cmake . -Bbuild && cd build && make -j8
