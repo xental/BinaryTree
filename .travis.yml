@@ -4,7 +4,10 @@ language: cpp
 matrix:
   include:
   - os: linux
-    env: NAME="Ubuntu 14.04 - g++-7"
+    env: 
+    - NAME="Ubuntu 14.04 - g++-7"
+    - CXX=g++-7
+    - CC=gcc-7
     dist: trusty
     addons:
       apt:
@@ -12,18 +15,26 @@ matrix:
         - ubuntu-toolchain-r-test
         packages:
         - g++-7
+        - gcc-7
   - os: linux
     dist: xenial
-    env: NAME="Ubuntu 16.04 - g++-7"
+    env: 
+    - NAME="Ubuntu 16.04 - g++-7"
+    - CXX=g++-7
+    - CC=gcc-7
     addons:
       apt:
         sources:
         - ubuntu-toolchain-r-test
         packages:
         - g++-7
+        - gcc-7
   - os: linux
     dist: trusty
-    env: NAME="Ubuntu 14.04 - g++-6"
+    env: 
+    - NAME="Ubuntu 14.04 - g++-6"
+    - CXX=g++-6
+    - CC=gcc-6
     addons:
       apt:
         sources:
@@ -31,9 +42,13 @@ matrix:
         - llvm-toolchain-trusty-5.0
         packages:
         - g++-6
+        - gcc-6
   - os: linux
     dist: xenial
-    env: NAME="Ubuntu 16.04 - g++-6"
+    env: 
+    - NAME="Ubuntu 16.04 - g++-6"
+    - CXX=g++-6
+    - CC=gcc-6
     addons:
       apt:
         sources:
@@ -41,6 +56,7 @@ matrix:
         - llvm-toolchain-trusty-5.0
         packages:
         - g++-6
+        - gcc-6
 
 
 script:
