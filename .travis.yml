@@ -24,7 +24,7 @@ matrix:
     addons:
       apt:
         sources:
-        - ubuntu-toolchain-r-test
+        - llvm-toolchain-trusty-5.0
         packages:
         - clang-6
   - os: linux
@@ -32,7 +32,7 @@ matrix:
     addons:
       apt:
         sources:
-        - ubuntu-toolchain-r-test
+        - llvm-toolchain-trusty-5.0
         packages:
         - clang-6
 
