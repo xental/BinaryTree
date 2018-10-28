@@ -1,3 +1,4 @@
+#include <string>
 
 template <class T>
 struct Node {

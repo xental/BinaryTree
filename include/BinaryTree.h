@@ -13,5 +13,5 @@ protected:
 public:
     BinaryTree(){root = nullptr;};
     virtual void insertRecord(T &key) = 0;
-    virtual void getRecord(T &key) = 0;
+    virtual Node<T>* getRecord(T &key) = 0;
 };

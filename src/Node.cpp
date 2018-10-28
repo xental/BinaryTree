@@ -18,3 +18,8 @@ template <class T>
 bool Node<T>::operator<(Node<T> &node) const {
     return key<node.key;
 }
+
+template class Node<float>;
+template class Node<double>;
+template class Node<std::string>;
+template class Node<int>;
