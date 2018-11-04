@@ -60,10 +60,10 @@ matrix:
         sources:
           - llvm-toolchain-trusty-5.0
         packages:
-          - clang-5.0
+          - clang
     env:
       - NAME="Ubuntu 16.04"
-      - MATRIX_EVAL="CC=clang-5.0 && CXX=clang++-5.0"
+      - MATRIX_EVAL="CC=clang && CXX=clang++"
 
   - os: linux
     dist: trusty
@@ -72,10 +72,10 @@ matrix:
         sources:
         - llvm-toolchain-trusty-5.0
         packages:
-        - clang-5.0
+        - clang
     env:
       - NAME="Ubuntu 14.04"
-      - MATRIX_EVAL="CC=clang-5.0 && CXX=clang++-5.0"
+      - MATRIX_EVAL="CC=clang && CXX=clang++"
 
 before_install:
 - eval "${MATRIX_EVAL}"
