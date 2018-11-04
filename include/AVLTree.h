@@ -14,6 +14,8 @@ private:
     Node<T>* getMaxNode(Node<T> *&node, T &key);
     void insertRecord(Node<T> *&node, T &key);
     Node<T>* getRecord(Node<T> *&node, T &key);
+    int height(Node<T> *&node);
+    int max(int left, int right);
 public:
     AVLTree(): root(nullptr){};
     // ~AVSTree() {};

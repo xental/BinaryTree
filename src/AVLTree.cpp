@@ -3,6 +3,8 @@
 //
 
 #include "../include/AVLTree.h"
+#include <iostream>
+
 template <class T>
 Node<T>* AVLTree<T>::getRecord(T &key) {
     if (root->key==key) return root;
@@ -28,6 +30,8 @@ void AVLTree<T>::insertRecord(T &key) {
     } else {
         insertRecord(root->left_node, key);
     }
+
+    root->height = 1 + max(height(root->left_node), height(root->right_node));
 }
 
 template <class T>
@@ -55,6 +59,8 @@ void AVLTree<T>::insertRecord(Node<T> *&node, T &key) {
     } else {
         insertRecord(node->left_node, key);
     }
+
+    node->height = (1 + max(height(node->left_node), height(node->right_node)));
 }
 
 template <class T>
@@ -73,6 +79,19 @@ Node<T>* AVLTree<T>::getMaxNode(Node<T> *&node, T &key) {
 template <class T>
 void AVLTree<T>::deleteRecord(T &key) {}
 
+
+template <class T>
+int AVLTree<T>::height(Node<T> *&node) {
+    if (node == nullptr) return 0;
+
+    return node->height;
+}
+
+
+template <class T>
+int AVLTree<T>::max(int left, int right) {
+    return (right>=left)?right:left;
+}
 
 
 template class AVLTree<float>;
