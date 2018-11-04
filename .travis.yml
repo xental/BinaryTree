@@ -4,7 +4,7 @@ matrix:
   include:
   - os: linux
     env:
-    - NAME="Ubuntu 14.04 - g++-7"
+    - NAME="Ubuntu 14.04"
     - MATRIX_EVAL="CC=gcc-7 && CXX=g++-7"
     dist: trusty
     addons:
@@ -17,7 +17,7 @@ matrix:
   - os: linux
     dist: xenial
     env:
-    - NAME="Ubuntu 16.04 - g++-7"
+    - NAME="Ubuntu 16.04"
     - MATRIX_EVAL="CC=gcc-7 && CXX=g++-7"
     addons:
       apt:
@@ -29,7 +29,7 @@ matrix:
   - os: linux
     dist: trusty
     env:
-    - NAME="Ubuntu 14.04 - g++-6"
+    - NAME="Ubuntu 14.04"
     - MATRIX_EVAL="CC=gcc-6 && CXX=g++-6"
     addons:
       apt:
@@ -42,7 +42,7 @@ matrix:
   - os: linux
     dist: xenial
     env:
-    - NAME="Ubuntu 16.04 - g++-6"
+    - NAME="Ubuntu 16.04"
     - MATRIX_EVAL="CC=gcc-6 && CXX=g++-6"
     addons:
       apt:
@@ -52,6 +52,30 @@ matrix:
         packages:
         - g++-6
         - gcc-6
+
+  - os: linux
+    dist: xenial
+    addons:
+      apt:
+        sources:
+          - llvm-toolchain-trusty-5.0
+        packages:
+          - clang
+    env:
+      - NAME="Ubuntu 16.04"
+      - MATRIX_EVAL="CC=clang && CXX=clang++"
+
+  - os: linux
+    dist: trusty
+    addons:
+      apt:
+        sources:
+        - llvm-toolchain-trusty-5.0
+        packages:
+        - clang
+    env:
+      - NAME="Ubuntu 14.04"
+      - MATRIX_EVAL="CC=clang && CXX=clang++"
 
 before_install:
 - eval "${MATRIX_EVAL}"
