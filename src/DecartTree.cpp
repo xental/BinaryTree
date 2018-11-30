@@ -107,7 +107,7 @@ T DecartTree<T>::find(T key) {
 			currentNode = currentNode->left_node;
 		}
 	if (currentNode == nullptr)
-		return NULL;
+		return 0;
 	else
 		return currentNode->key;
 }
