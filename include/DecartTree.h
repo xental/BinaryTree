@@ -19,4 +19,5 @@ public:
 	void insert(T key, T priority);
 	void print(Node<T>* node);
 	void print();
+	T find(T key);
 };

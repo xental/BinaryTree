@@ -95,4 +95,21 @@ void DecartTree<T>::print() {
 	print(root);
 }
 
+
+template <class T>
+T DecartTree<T>::find(T key) {
+	Node<T>* currentNode = root;
+	while (currentNode != nullptr && key != currentNode->key)
+		if (key > currentNode->key) {
+			currentNode = currentNode->right_node;
+		}
+		else {
+			currentNode = currentNode->left_node;
+		}
+	if (currentNode == nullptr)
+		return NULL;
+	else
+		return currentNode->key;
+}
+
 template class DecartTree<int>;
