@@ -1,15 +1,9 @@
-#include "../include/BinaryTree.h"
+#include "../include/SplayTree.h"
 #include <iostream>
 #include <cstdio>
 #include <cstdlib>
 using namespace std;
 
-struct splay
-{
-	int key;
-	splay* lchild;
-	splay* rchild;
-};
 
 class SplayTree 
 {
