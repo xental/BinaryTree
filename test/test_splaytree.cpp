@@ -1,105 +1,84 @@
 #include <gtest/gtest.h>
 #include "../include/SplayTree.h"
+#include <cstdlib>
 #include <iostream>
+#include <ctime>
 
-TEST(SplayTree, Can_create_int_splay_tree){
+TEST(SplayTree, Can_create_splay_tree){
     SplayTree tree;
 }
 
+TEST(SplayTree, Can_insert_val_tree){
+    splay* root = nullptr;
+    splay* elem = nullptr;
+    SplayTree tree;
 
-// TEST(AVL_Tree_Creation, Can_create_float_avl_tree){
-    // AVLTree<float> tree;
-// }
+    int val1 = 5;
+    int val2 = 3;
+    int val3 = 7;
 
+    root = tree.Insert(val1, root);
+    root = tree.Insert(val2, root);
+    root = tree.Insert(val3, root);
 
-// TEST(AVL_Tree_Creation, Can_create_double_avl_tree){
-    // AVLTree<double> tree;
-// }
+    elem = tree.Search(val3, root);
+    ASSERT_EQ(elem->key, val3);
+}
 
+TEST(SplayTree, Can_delete_val_tree){
+    splay* root = nullptr;
+    splay* elem_del = nullptr;
+    SplayTree tree;
 
-// TEST(AVL_Tree_Creation, Can_create_string_avl_tree){
-    // AVLTree<std::string> tree;
-// }
+    int val1 = 5;
+    int val2 = 3;
+    int val3 = 9;
+    int val4 = 7;
 
+    root = tree.Insert(val1, root);
+    root = tree.Insert(val2, root);
+    root = tree.Insert(val3, root);
+    root = tree.Insert(val4, root);
 
-// TEST(AVL_Tree_Creation, Can_insert_int_val_tree){
-    // AVLTree<int> tree;
-    // int val1 = 5;
-    // int val2 = 3;
-    // int val3 = 7;
+    root = tree.Delete(val2, root);
+    elem_del = tree.Search(val2, root);
+    ASSERT_NE(elem_del->key, val2);
+}
 
-    // tree.insertRecord(val1);
-    // tree.insertRecord(val2);
-    // tree.insertRecord(val3);
+TEST(SplayTree, Can_insert_data_tree){
+    std::srand(unsigned(std::time(0)));
+    splay* root = nullptr;
+    splay* elem = nullptr;
+    SplayTree tree;
 
-    // ASSERT_EQ(tree.getRecord(val3)->key, val3);
-// }
+    std::vector<int> data;
 
+    for (size_t i = 0; i < 1e6; i++) {
+        int value = std::rand();
+        data.push_back(value);
+        root = tree.Insert(value, root);
+    }
 
-// TEST(AVL_Tree_Creation, Can_insert_float_val_tree){
-    // AVLTree<float> tree;
-    // float val1 = 5.3f;
-    // float val2 = 3.6f;
-    // float val3 = 7.9f;
+    const int index = 1111;
+    elem = tree.Search(data[index], root);
+    ASSERT_EQ(elem->key, data[index]);
+}
 
-    // tree.insertRecord(val1);
-    // tree.insertRecord(val2);
-    // tree.insertRecord(val3);
+TEST(SplayTree, Can_delete_data_tree){
+    splay* root = nullptr;
+    splay* elem_del = nullptr;
+    SplayTree tree;
 
-    // ASSERT_EQ(tree.getRecord(val3)->key, val3);
-// }
+    std::vector<int> data;
 
+    for (size_t i = 0; i < 1e6; i++) {
+        int value = std::rand();
+        data.push_back(value);
+        root = tree.Insert(value, root);
+    }
 
-// TEST(AVL_Tree_Creation, Can_insert_double_val_tree){
-    // AVLTree<double> tree;
-    // double val1 = 5.3;
-    // double val2 = 3.6;
-    // double val3 = 7.9;
-
-    // tree.insertRecord(val1);
-    // tree.insertRecord(val2);
-    // tree.insertRecord(val3);
-
-    // ASSERT_EQ(tree.getRecord(val3)->key, val3);
-// }
-
-
-// TEST(AVL_Tree_Creation, Can_insert_string_val_tree){
-    // AVLTree<std::string> tree;
-    // std::string val1 = "val1";
-    // std::string val2 = "val0";
-    // std::string val3 = "val2";
-
-    // tree.insertRecord(val1);
-    // tree.insertRecord(val2);
-    // tree.insertRecord(val3);
-
-    // ASSERT_EQ(tree.getRecord(val3)->key, val3);
-// }
-
-// TEST(AVL_Tree_Creation, Height_setting_properly){
-    // AVLTree<int> tree;
-    // int val1 = 5;
-    // int val2 = 3;
-    // int val3 = 7;
-    // int val4 = 2;
-    // int val5 = 1;
-    // int val6 = 4;
-    // int val7 = 8;
-    // int val8 = 9;
-    // int val9 = 10;
-
-    // int expected_height = 5;
-
-    // tree.insertRecord(val1);
-    // tree.insertRecord(val2);
-    // tree.insertRecord(val3);
-    // tree.insertRecord(val4);
-    // tree.insertRecord(val5);
-    // tree.insertRecord(val6);
-    // tree.insertRecord(val7);
-    // tree.insertRecord(val8);
-    // tree.insertRecord(val9);
-
-    // ASSERT_EQ(tree.getRecord(val1)->height, expected_height);
-// }
+    const int index = 3333;
+    root = tree.Delete(data[index], root);
+    elem_del = tree.Search(data[index], root);
+    ASSERT_NE(elem_del->key, data[index]);
+}
