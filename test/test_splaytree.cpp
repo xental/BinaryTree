@@ -4,26 +4,26 @@
 #include <iostream>
 #include <ctime>
 
-TEST(SplayTree, Can_create_int_splay_tree){
+TEST(SplayTreeCreate, Can_create_int_splay_tree){
     SplayTree<int> tree;
 }
 
-TEST(SplayTree, Can_create_float_splay_tree){
+TEST(SplayTreeCreate, Can_create_float_splay_tree){
     SplayTree<float> tree;
 }
 
 
-TEST(SplayTree, Can_create_double_splay_tree){
+TEST(SplayTreeCreate, Can_create_double_splay_tree){
     SplayTree<double> tree;
 }
 
 
-TEST(SplayTree, Can_create_string_splay_tree){
+TEST(SplayTreeCreate, Can_create_string_splay_tree){
     SplayTree<std::string> tree;
 }
 
 
-TEST(SplayTree, Can_insert_int_val_tree){
+TEST(SplayTreeCreate, Can_insert_int_val_tree){
     splay<int>* root = nullptr;
     splay<int>* elem = nullptr;
     SplayTree<int> tree;
@@ -40,7 +40,7 @@ TEST(SplayTree, Can_insert_int_val_tree){
     ASSERT_EQ(elem->key, val3);
 }
 
-TEST(SplayTree, Can_insert_float_val_tree){
+TEST(SplayTreeCreate, Can_insert_float_val_tree){
     splay<float>* root = nullptr;
     splay<float>* elem = nullptr;
     SplayTree<float> tree;
@@ -57,7 +57,7 @@ TEST(SplayTree, Can_insert_float_val_tree){
     ASSERT_EQ(elem->key, val3);
 }
 
-TEST(SplayTree, Can_insert_double_val_tree){
+TEST(SplayTreeCreate, Can_insert_double_val_tree){
     splay<double>* root = nullptr;
     splay<double>* elem = nullptr;
     SplayTree<double> tree;
@@ -74,7 +74,7 @@ TEST(SplayTree, Can_insert_double_val_tree){
     ASSERT_EQ(elem->key, val3);
 }
 
-TEST(SplayTree, Can_insert_string_val_tree){
+TEST(SplayTreeCreate, Can_insert_string_val_tree){
     splay<std::string>* root = nullptr;
     splay<std::string>* elem = nullptr;
     SplayTree<std::string> tree;
@@ -92,7 +92,7 @@ TEST(SplayTree, Can_insert_string_val_tree){
 }
 
 
-TEST(SplayTree, Can_delete_int_val_tree){
+TEST(SplayTreeCreate, Can_delete_int_val_tree){
     splay<int>* root = nullptr;
     splay<int>* elem_del = nullptr;
     SplayTree<int> tree;
@@ -112,7 +112,7 @@ TEST(SplayTree, Can_delete_int_val_tree){
     ASSERT_NE(elem_del->key, val2);
 }
 
-TEST(SplayTree, Can_delete_float_val_tree){
+TEST(SplayTreeCreate, Can_delete_float_val_tree){
     splay<float>* root = nullptr;
     splay<float>* elem_del = nullptr;
     SplayTree<float> tree;
@@ -132,7 +132,7 @@ TEST(SplayTree, Can_delete_float_val_tree){
     ASSERT_NE(elem_del->key, val2);
 }
 
-TEST(SplayTree, Can_delete_double_val_tree){
+TEST(SplayTreeCreate, Can_delete_double_val_tree){
     splay<double>* root = nullptr;
     splay<double>* elem_del = nullptr;
     SplayTree<double> tree;
@@ -153,7 +153,7 @@ TEST(SplayTree, Can_delete_double_val_tree){
 }
 
 
-TEST(SplayTree, Can_delete_string_val_tree){
+TEST(SplayTreeCreate, Can_delete_string_val_tree){
     splay<std::string>* root = nullptr;
     splay<std::string>* elem_del = nullptr;
     SplayTree<std::string> tree;
@@ -173,7 +173,7 @@ TEST(SplayTree, Can_delete_string_val_tree){
     ASSERT_NE(elem_del->key, val2);
 }
 
-TEST(SplayTree, Can_insert_data_tree){
+TEST(SplayTreeCreate, Can_insert_data_tree){
     std::srand(unsigned(std::time(0)));
     splay<int>* root = nullptr;
     splay<int>* elem = nullptr;
@@ -192,7 +192,7 @@ TEST(SplayTree, Can_insert_data_tree){
     ASSERT_EQ(elem->key, data[index]);
 }
 
-TEST(SplayTree, Can_delete_data_tree){
+TEST(SplayTreeCreate, Can_delete_data_tree){
     splay<int>* root = nullptr;
     splay<int>* elem_del = nullptr;
     SplayTree<int> tree;
