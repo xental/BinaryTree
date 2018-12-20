@@ -86,7 +86,7 @@ splay<T>* SplayTree<T>::Splay(T key, splay<T>* root)
 template <class T>
 splay<T>* SplayTree<T>::New_Node(T key)
 {
-	splay<T>* p_node = new splay;
+	splay<T>* p_node = new splay<T>;
 	if (!p_node)
 	{
 		fprintf(stderr, "Out of memory!\n");
