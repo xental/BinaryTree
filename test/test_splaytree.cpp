@@ -175,9 +175,9 @@ TEST(SplayTree, Can_delete_string_val_tree){
 
 TEST(SplayTree, Can_insert_data_tree){
     std::srand(unsigned(std::time(0)));
-    splay* root = nullptr;
-    splay* elem = nullptr;
-    SplayTree tree;
+    splay<int>* root = nullptr;
+    splay<int>* elem = nullptr;
+    SplayTree<int> tree;
 
     std::vector<int> data;
 
@@ -193,9 +193,9 @@ TEST(SplayTree, Can_insert_data_tree){
 }
 
 TEST(SplayTree, Can_delete_data_tree){
-    splay* root = nullptr;
-    splay* elem_del = nullptr;
-    SplayTree tree;
+    splay<int>* root = nullptr;
+    splay<int>* elem_del = nullptr;
+    SplayTree<int> tree;
 
     std::vector<int> data;
 
