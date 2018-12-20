@@ -171,7 +171,7 @@ splay<T>* SplayTree<T>::Search(T &key, splay<T>* &root)
 }
 
 template <class T>
-void SplayTree<T>::InOrder(splay<T>* root)
+void SplayTree<T>::InOrder(splay<T>* &root)
 {
 	if (root)
 	{
