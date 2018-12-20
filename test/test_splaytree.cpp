@@ -79,9 +79,9 @@ TEST(SplayTree, Can_insert_string_val_tree){
     splay<std::string>* elem = nullptr;
     SplayTree<std::string> tree;
 
-    std::string val1 = '4';
-    std::string val2 = '3';
-    std::string val3 = '8';
+    std::string val1 = "4";
+    std::string val2 = "3";
+    std::string val3 = "8";
 
     root = tree.Insert(val1, root);
     root = tree.Insert(val2, root);
@@ -158,10 +158,10 @@ TEST(SplayTree, Can_delete_string_val_tree){
     splay<std::string>* elem_del = nullptr;
     SplayTree<std::string> tree;
 
-    std::string val1 = '5';
-    std::string val2 = '3';
-    std::string val3 = '9';
-    std::string val4 = '8';
+    std::string val1 = "5";
+    std::string val2 = "3";
+    std::string val3 = "9";
+    std::string val4 = "8";
 
     root = tree.Insert(val1, root);
     root = tree.Insert(val2, root);
