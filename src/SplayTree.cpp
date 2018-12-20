@@ -5,34 +5,37 @@
 using namespace std;
 
 // RR(Y rotates to the right)
-splay* SplayTree::RR_Rotate(splay* k2)
+template <class T>
+splay<T>* SplayTree<T>::RR_Rotate(splay<T>* k2)
 {
-	splay* k1 = k2->lchild;
+	splay<T>* k1 = k2->lchild;
 	k2->lchild = k1->rchild;
 	k1->rchild = k2;
 	return k1;
 }
 
 // LL(Y rotates to the left)
-splay* SplayTree::LL_Rotate(splay* k2)
+template <class T>
+splay<T>* SplayTree<T>::LL_Rotate(splay<T>* k2)
 {
-	splay* k1 = k2->rchild;
+	splay<T>* k1 = k2->rchild;
 	k2->rchild = k1->lchild;
 	k1->lchild = k2;
 	return k1;
 }
 
 // An implementation of top-down splay tree
-splay* SplayTree::Splay(int key, splay* root)
+template <class T>
+splay<T>* SplayTree<T>::Splay(T key, splay<T>* root)
 {
 	if (!root)
 		return NULL;
-	splay header;
+	splay<T> header;
 	/* header.rchild points to L tree;
 	header.lchild points to R Tree */
-	header.lchild = header.rchild = NULL;
-	splay* LeftTreeMax = &header;
-	splay* RightTreeMin = &header;
+	header.lchild = header->rchild = NULL;
+	splay<T>* LeftTreeMax = &header;
+	splay<T>* RightTreeMin = &header;
 	while (1)
 	{
 		if (key < root->key)
@@ -80,7 +83,8 @@ splay* SplayTree::Splay(int key, splay* root)
 	return root;
 }
 
-splay* SplayTree::New_Node(int key)
+template <class T>
+splay<T>* SplayTree<T>::New_Node(T key)
 {
 	splay* p_node = new splay;
 	if (!p_node)
@@ -93,9 +97,10 @@ splay* SplayTree::New_Node(int key)
 	return p_node;
 }
 
-splay* SplayTree::Insert(int key, splay* root)
+template <class T>
+splay<T>* SplayTree<T>::Insert(T key, splay<T>* root)
 {
-	static splay* p_node = NULL;
+	static splay<T>* p_node = NULL;
 	if (!p_node)
 		p_node = New_Node(key);
 	else
@@ -129,7 +134,8 @@ splay* SplayTree::Insert(int key, splay* root)
 	return root;
 }
 
-splay* SplayTree::Delete(int key, splay* root)
+template <class T>
+splay<T>* SplayTree<T>::Delete(T key, splay<T>* root)
 {
 	splay* temp;
 	if (!root)
@@ -158,12 +164,14 @@ splay* SplayTree::Delete(int key, splay* root)
 	}
 }
 
-splay* SplayTree::Search(int key, splay* root)
+template <class T>
+splay<T>* SplayTree<T>::Search(T key, splay<T>* root)
 {
 	return Splay(key, root);
 }
 
-void SplayTree::InOrder(splay* root)
+template <class T>
+void SplayTree<T>::InOrder(splay<T>* root)
 {
 	if (root)
 	{
