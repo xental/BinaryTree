@@ -86,7 +86,7 @@ splay<T>* SplayTree<T>::Splay(T key, splay<T>* root)
 template <class T>
 splay<T>* SplayTree<T>::New_Node(T key)
 {
-	splay* p_node = new splay;
+	splay<T>* p_node = new splay;
 	if (!p_node)
 	{
 		fprintf(stderr, "Out of memory!\n");
@@ -137,7 +137,7 @@ splay<T>* SplayTree<T>::Insert(T key, splay<T>* root)
 template <class T>
 splay<T>* SplayTree<T>::Delete(T key, splay<T>* root)
 {
-	splay* temp;
+	splay<T>* temp;
 	if (!root)
 		return NULL;
 	root = Splay(key, root);
