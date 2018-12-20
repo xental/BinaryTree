@@ -28,5 +28,7 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 set(CMAKE_PDB_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
 
 add_subdirectory("src")
-add_subdirectory("test")
+file(GLOB srcs "src/*.cpp")
+#add_subdirectory("test")
 enable_testing()
+add_executable(main main.cpp ${srcs})
