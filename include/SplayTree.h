@@ -32,14 +32,14 @@ class SplayTree
 {
 public:
 	SplayTree() {}
-	splay<T>* RR_Rotate(splay<T>* k_rr);
-	splay<T>* LL_Rotate(splay<T>* k_ll);
-	splay<T>* Splay(T key, splay<T>* root);
-	splay<T>* New_Node(T key);
-	splay<T>* Insert(T key, splay<T>* root);
-	splay<T>* Delete(T key, splay<T>* root);
-	splay<T>* Search(T key, splay<T>* root);
-	void InOrder(splay<T>* root);
+	splay<T>* RR_Rotate(splay<T>* &k_rr);
+	splay<T>* LL_Rotate(splay<T>* &k_ll);
+	splay<T>* Splay(T &key, splay<T>* &root);
+	splay<T>* New_Node(T &key);
+	splay<T>* Insert(T &key, splay<T>* &root);
+	splay<T>* Delete(T &key, splay<T>* &root);
+	splay<T>* Search(T &key, splay<T>* &root);
+	void InOrder(splay<T>* &root);
 };
 
 

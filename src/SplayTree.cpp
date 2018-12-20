@@ -6,7 +6,7 @@ using namespace std;
 
 // RR(Y rotates to the right)
 template <class T>
-splay<T>* SplayTree<T>::RR_Rotate(splay<T>* k2)
+splay<T>* SplayTree<T>::RR_Rotate(splay<T>* &k2)
 {
 	splay<T>* k1 = k2->lchild;
 	k2->lchild = k1->rchild;
@@ -16,7 +16,7 @@ splay<T>* SplayTree<T>::RR_Rotate(splay<T>* k2)
 
 // LL(Y rotates to the left)
 template <class T>
-splay<T>* SplayTree<T>::LL_Rotate(splay<T>* k2)
+splay<T>* SplayTree<T>::LL_Rotate(splay<T>* &k2)
 {
 	splay<T>* k1 = k2->rchild;
 	k2->rchild = k1->lchild;
@@ -26,7 +26,7 @@ splay<T>* SplayTree<T>::LL_Rotate(splay<T>* k2)
 
 // An implementation of top-down splay tree
 template <class T>
-splay<T>* SplayTree<T>::Splay(T key, splay<T>* root)
+splay<T>* SplayTree<T>::Splay(T &key, splay<T>* &root)
 {
 	if (!root)
 		return NULL;
@@ -84,7 +84,7 @@ splay<T>* SplayTree<T>::Splay(T key, splay<T>* root)
 }
 
 template <class T>
-splay<T>* SplayTree<T>::New_Node(T key)
+splay<T>* SplayTree<T>::New_Node(T &key)
 {
 	splay<T>* p_node = new splay<T>;
 	if (!p_node)
@@ -98,7 +98,7 @@ splay<T>* SplayTree<T>::New_Node(T key)
 }
 
 template <class T>
-splay<T>* SplayTree<T>::Insert(T key, splay<T>* root)
+splay<T>* SplayTree<T>::Insert(T &key, splay<T>* &root)
 {
 	static splay<T>* p_node = NULL;
 	if (!p_node)
@@ -135,7 +135,7 @@ splay<T>* SplayTree<T>::Insert(T key, splay<T>* root)
 }
 
 template <class T>
-splay<T>* SplayTree<T>::Delete(T key, splay<T>* root)
+splay<T>* SplayTree<T>::Delete(T &key, splay<T>* &root)
 {
 	splay<T>* temp;
 	if (!root)
@@ -165,7 +165,7 @@ splay<T>* SplayTree<T>::Delete(T key, splay<T>* root)
 }
 
 template <class T>
-splay<T>* SplayTree<T>::Search(T key, splay<T>* root)
+splay<T>* SplayTree<T>::Search(T &key, splay<T>* &root)
 {
 	return Splay(key, root);
 }
