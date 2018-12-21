@@ -23,6 +23,11 @@ void DecartTree<T>::split(Node<T> *node, T key, Node<T> *&left, Node<T> *&right)
 }
 
 template <class T>
+void DecartTree<T>::deleteRecord(T key) {
+	deleteRecord(root, key);
+}
+
+template <class T>
 void DecartTree<T>::insert(Node<T> *&node, Node<T>* n) {
 	if (node == nullptr) {
 		node = n;

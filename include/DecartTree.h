@@ -17,6 +17,7 @@ private:
 public:
 	DecartTree() : root(nullptr) {};
 	void insert(T key, T priority);
+	void deleteRecord(T key);
 	void print(Node<T>* node);
 	void print();
 	T find(T key);
