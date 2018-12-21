@@ -2,7 +2,7 @@
 // Created by stasm2011 on 05.11.18.
 //
 
-#include "../include/DecartTree.h"
+#include "DecartTree.h"
 #include <iostream>
 
 template <class T>
@@ -129,3 +129,5 @@ void DecartTree<T>::print() {
 }
 
 template class DecartTree<int>;
+template class DecartTree<double>;
+template class DecartTree<std::string>;
