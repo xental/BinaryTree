@@ -32,7 +32,7 @@ TEST(AVL_Tree_Creation, Can_insert_int_val_tree){
     tree.insertRecord(val2);
     tree.insertRecord(val3);
 
-    ASSERT_EQ(tree.getRecord(val3)->key, val3);
+    ASSERT_EQ(tree.findRecord(val3)->key, val3);
 }
 
 
@@ -46,7 +46,7 @@ TEST(AVL_Tree_Creation, Can_insert_float_val_tree){
     tree.insertRecord(val2);
     tree.insertRecord(val3);
 
-    ASSERT_EQ(tree.getRecord(val3)->key, val3);
+    ASSERT_EQ(tree.findRecord(val3)->key, val3);
 }
 
 
@@ -60,7 +60,7 @@ TEST(AVL_Tree_Creation, Can_insert_double_val_tree){
     tree.insertRecord(val2);
     tree.insertRecord(val3);
 
-    ASSERT_EQ(tree.getRecord(val3)->key, val3);
+    ASSERT_EQ(tree.findRecord(val3)->key, val3);
 }
 
 
@@ -74,7 +74,7 @@ TEST(AVL_Tree_Creation, Can_insert_string_val_tree){
     tree.insertRecord(val2);
     tree.insertRecord(val3);
 
-    ASSERT_EQ(tree.getRecord(val3)->key, val3);
+    ASSERT_EQ(tree.findRecord(val3)->key, val3);
 }
 
 TEST(AVL_Tree_Creation, Height_setting_properly){
@@ -89,7 +89,7 @@ TEST(AVL_Tree_Creation, Height_setting_properly){
     int val8 = 9;
     int val9 = 10;
 
-    int expected_height = 5;
+    int expected_height = 4;
 
     tree.insertRecord(val1);
     tree.insertRecord(val2);
@@ -101,5 +101,5 @@ TEST(AVL_Tree_Creation, Height_setting_properly){
     tree.insertRecord(val8);
     tree.insertRecord(val9);
 
-    ASSERT_EQ(tree.getRecord(val1)->height, expected_height);
+    ASSERT_EQ(tree.getHeight(), expected_height);
 }

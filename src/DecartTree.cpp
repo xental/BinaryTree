@@ -63,7 +63,7 @@ void DecartTree<T>::deleteRecord(Node<T> *&node, T key) {
 		deleteRecord(key < node->key ? node->left_node : node->right_node, key);
 }
 
-template <class T>
+
 void DecartTree<T>::deleteRecord(T key) {
 	deleteRecord(root, key);
 }
@@ -78,7 +78,6 @@ void DecartTree<T>::insert(T key, int priority) {
 	n->right_node = nullptr;
 	insert(root, n);
 }
-
 
 template <class T>
 void DecartTree<T>::insert(T key) {
@@ -107,8 +106,12 @@ void DecartTree<T>::print(Node<T>* node) {
 		print(node->right_node);
 }
 
-template <class T>
+
 Node<T>* DecartTree<T>::find(T key) {
+=======
+void DecartTree<T>::print() {
+	print(root);
+
 	Node<T>* currentNode = root;
 	while (currentNode != nullptr && key != currentNode->key)
 		if (key > currentNode->key) {
@@ -117,6 +120,7 @@ Node<T>* DecartTree<T>::find(T key) {
 		else {
 			currentNode = currentNode->left_node;
 		}
+
 		if (currentNode == nullptr)
 			return 0;
 		else
@@ -131,3 +135,4 @@ void DecartTree<T>::print() {
 template class DecartTree<int>;
 template class DecartTree<double>;
 template class DecartTree<std::string>;
+

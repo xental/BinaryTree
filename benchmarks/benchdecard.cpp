@@ -1,4 +1,3 @@
-
 #include "benchdecard.h"
 
 
@@ -139,3 +138,4 @@ void generate_str(DecartTree<std::string>* tree, std::ofstream& steam) {
 
 
 }
+

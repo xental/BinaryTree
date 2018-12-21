@@ -3,7 +3,7 @@ set(target ${LIBRARY})
 file(GLOB hrcs "../include/*.h*")
 file(GLOB srcs "*.cpp")
 
-add_library(${target} SHARED ${hrcs} ${srcs})
+add_library(${target} SHARED ${hrcs} ${srcs} ../benchmarks/benchavl.cpp ../benchmarks/benchsplay.cpp ../benchmarks/benchdecard.cpp)
 set_target_properties(${target}
         PROPERTIES OUTPUT_NAME ${MODULE})
 
