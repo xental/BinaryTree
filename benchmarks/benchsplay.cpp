@@ -10,7 +10,7 @@
 using namespace std::chrono;
 
 void generate_int(SplayTree<int>* tree, std::ofstream& steam){
-    int num = 10;
+    int num = 5000000;
     splay<int>* root = nullptr;
     for (int i = 0; i<num; i++){
         auto start = high_resolution_clock::now();
@@ -47,7 +47,7 @@ void generate_int(SplayTree<int>* tree, std::ofstream& steam){
 
 
 void generate_double(SplayTree<double>* tree, std::ofstream& steam){
-    int num = 100000;
+    int num = 5000000;
     splay<double>* root = nullptr;
     double val = 0.0;
     for (int i = 0; i<num; i++){
@@ -91,31 +91,30 @@ void generate_str(SplayTree<std::string>* tree, std::ofstream& steam){
                 for (int l =0; l<10; l++){
                     for (int m =0; m<10; m++){
                         for (int n=0; n<10; n++){
-                            for (int z=0; z<10; z++) {
-                                for (int x=0; x<10; x++) {
-                                    std::string final_str =
-                                            letter_arr[i] + letter_arr[j] + letter_arr[k] + letter_arr[l] +
-                                            letter_arr[m] + letter_arr[n] + letter_arr[z] + letter_arr[x];
+                            for (int z=0; z<5; z++) {
+                                std::string final_str =
+                                        letter_arr[i] + letter_arr[j] + letter_arr[k] + letter_arr[l] +
+                                        letter_arr[m] + letter_arr[n] + letter_arr[z];
 
-                                    auto start = high_resolution_clock::now();
-                                    //tree->insertRecord(final_str);
-                                    root = tree->Insert(final_str, root);
-                                    auto stop = high_resolution_clock::now();
-                                    auto duration = duration_cast<nanoseconds>(stop - start);
-                                    steam << "string," << "add," << count << "," << duration.count() << ",Splay,"
-                                          << final_str
-                                          << std::endl;
-                                    start = high_resolution_clock::now();
+                                auto start = high_resolution_clock::now();
+                                //tree->insertRecord(final_str);
+                                root = tree->Insert(final_str, root);
+                                auto stop = high_resolution_clock::now();
+                                auto duration = duration_cast<nanoseconds>(stop - start);
+                                steam << "string," << "add," << count << "," << duration.count() << ",Splay,"
+                                      << final_str
+                                      << std::endl;
+                                start = high_resolution_clock::now();
 
-                                    //tree->findRecord(final_str);
-                                    tree->Search(final_str, root);
-                                    //tree.Find(tree.GetRoot(), final_str);
-                                    stop = high_resolution_clock::now();
-                                    duration = duration_cast<nanoseconds>(stop - start);
-                                    steam << "string," << "find," << count << "," << duration.count() << ",Splay,"
-                                          << final_str << std::endl;
-                                    count++;
-                                }
+                                //tree->findRecord(final_str);
+                                tree->Search(final_str, root);
+                                //tree.Find(tree.GetRoot(), final_str);
+                                stop = high_resolution_clock::now();
+                                duration = duration_cast<nanoseconds>(stop - start);
+                                steam << "string," << "find," << count << "," << duration.count() << ",Splay,"
+                                      << final_str << std::endl;
+                                count++;
+
                             }
                         }
                     }
@@ -131,7 +130,7 @@ void generate_str(SplayTree<std::string>* tree, std::ofstream& steam){
                 for (int l =0; l<10; l++){
                     for (int m =0; m<10; m++){
                         for (int n=0; n<10; n++){
-                            for (int z=0; z<10; z++) {
+                            for (int z=0; z<5; z++) {
                                 std::string final_str =
                                         letter_arr[i] + letter_arr[j] + letter_arr[k] + letter_arr[l] +
                                         letter_arr[m] + letter_arr[n] + letter_arr[z];
