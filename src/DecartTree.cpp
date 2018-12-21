@@ -2,7 +2,7 @@
 // Created by stasm2011 on 05.11.18.
 //
 
-#include "DecartTree.h"
+#include "../include/DecartTree.h"
 #include <iostream>
 
 template <class T>
