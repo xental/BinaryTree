@@ -27,4 +27,5 @@ public:
     Node<T>* findRecord(T& key);
     int getHeight();
     struct Node<T>* getRoot();
+
 };

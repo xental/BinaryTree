@@ -4,6 +4,7 @@
 
 #include "../include/AVLTree.h"
 #include <iostream>
+
 template <class T>
 int AVLTree<T>::height(Node<T> *N) {
     if (N == NULL)
@@ -265,3 +266,4 @@ struct Node<T>* AVLTree<T>::getRoot() {
 template class AVLTree<double>;
 template class AVLTree<std::string>;
 template class AVLTree<int>;
+
