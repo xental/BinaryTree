@@ -85,7 +85,7 @@ void DecartTree<T>::insert(T key) {
 	insert(key, rand());
 	Node<T>* n = new Node<T>();
 	n->key = key;
-	n->height = rand() % 500;
+	n->height = rand();
 	n->left_node = nullptr;
 	n->right_node = nullptr;
 	insert(root, n);
