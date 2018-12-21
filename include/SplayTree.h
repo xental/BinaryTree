@@ -1,7 +1,6 @@
 #ifndef SPLAY_TREE
 #define SPLAY_TREE
 
-#include "BinaryTree.h"
 #include <string>
 #include <iostream>
 #include <cstdio>
@@ -12,17 +11,17 @@ template <class T>
 struct splay
 {
 	T key;
-	splay* lchild;
-	splay* rchild;
+	splay* lchild = nullptr;
+	splay* rchild = nullptr;
 
-	bool operator==(Node<T> &node) const {
+	bool operator==(splay<T> &node) const {
 		return key == node.key;
 	}
 
-	bool operator>(Node<T> &node) const {
+	bool operator>(splay<T> &node) const {
 		return key>node.key;
 	}
-	bool operator<(Node<T> &node) const {
+	bool operator<(splay<T> &node) const {
 		return key<node.key;
 	}
 };
@@ -108,7 +107,7 @@ public:
 
 	splay<T>* New_Node(T key)
 	{
-		splay<T>* p_node = new splay<T>;
+		splay<T>* p_node = new splay<T>();
 		if (!p_node)
 		{
 			fprintf(stderr, "Out of memory!\n");

@@ -21,6 +21,8 @@ endif( MSVC )
 set(MODULE      "BinaryTree")
 set(LIBRARY     "Lib${MODULE}")
 set(TESTS       "run_tests")
+set(BENCH       "run_bench")
+
 
 set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
@@ -29,4 +31,5 @@ set(CMAKE_PDB_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
 
 add_subdirectory("src")
 add_subdirectory("test")
+add_subdirectory("benchmarks")
 enable_testing()

@@ -3,8 +3,8 @@
 template <class T>
 struct Node {
     T key;
-    Node* left_node = nullptr;
-    Node* right_node = nullptr;
+    Node<T>* left_node = nullptr;
+    Node<T>* right_node = nullptr;
     int height;
 
     bool operator==(Node<T> &node) const;
