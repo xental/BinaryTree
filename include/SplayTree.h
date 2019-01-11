@@ -11,20 +11,9 @@ using namespace std;
 template <class T>
 struct splay
 {
-	T key;
-	splay* lchild;
-	splay* rchild;
-
-	bool operator==(Node<T> &node) const {
-		return key == node.key;
-	}
-
-	bool operator>(Node<T> &node) const {
-		return key>node.key;
-	}
-	bool operator<(Node<T> &node) const {
-		return key<node.key;
-	}
+    int key;
+    splay* lchild;
+    splay* rchild;
 };
 
 
@@ -49,13 +38,11 @@ public:
 		return k1;
 	}
 
-	splay<T>* Splay(T key, splay<T>* root)
+	splay<T>* Splay(T key, splay<T>*& root)
 	{
 		if (!root)
 			return NULL;
 		splay<T> header;
-		/* header.rchild points to L tree;
-		header.lchild points to R Tree */
 		header.lchild = header.rchild = NULL;
 		splay<T>* LeftTreeMax = &header;
 		splay<T>* RightTreeMin = &header;
@@ -67,12 +54,11 @@ public:
 					break;
 				if (key < root->lchild->key)
 				{
-					root = RR_Rotate(root);
-					// only zig-zig mode need to rotate once,
+					root = RR_Rotate(root);	
 					if (!root->lchild)
 						break;
 				}
-				/* Link to R Tree */
+				
 				RightTreeMin->lchild = root;
 				RightTreeMin = RightTreeMin->lchild;
 				root = root->lchild;
@@ -85,11 +71,10 @@ public:
 				if (key > root->rchild->key)
 				{
 					root = LL_Rotate(root);
-					// only zag-zag mode need to rotate once,
 					if (!root->rchild)
 						break;
 				}
-				/* Link to L Tree */
+				
 				LeftTreeMax->rchild = root;
 				LeftTreeMax = LeftTreeMax->rchild;
 				root = root->rchild;
@@ -98,7 +83,7 @@ public:
 			else
 				break;
 		}
-		/* assemble L Tree, Middle Tree and R tree */
+		
 		LeftTreeMax->rchild = root->lchild;
 		RightTreeMin->lchild = root->rchild;
 		root->lchild = header.rchild;
@@ -119,7 +104,7 @@ public:
 		return p_node;
 	}
 
-	splay<T>* Insert(T key, splay<T>* root)
+	void<T>* Insert(T key, splay<T>*& root)
 	{
 		static splay<T>* p_node = NULL;
 		if (!p_node)
@@ -132,9 +117,7 @@ public:
 			p_node = NULL;
 			return root;
 		}
-		root = Splay(key, root);
-		/* This is BST that, all keys <= root->key is in root->lchild, all keys >
-		root->key is in root->rchild. */
+		root = Splay(key, root);		
 		if (key < root->key)
 		{
 			p_node->lchild = root->lchild;
@@ -152,10 +135,10 @@ public:
 		else
 			return root;
 		p_node = NULL;
-		return root;
+		return;
 	}
 
-	splay<T>* Delete(T key, splay<T>* root)
+	void<T>* Delete(T key, splay<T>*& root)
 	{
 		splay<T>* temp;
 		if (!root)
@@ -173,35 +156,31 @@ public:
 			else
 			{
 				temp = root;
-				/*Note: Since key == root->key,
-				so after Splay(key, root->lchild),
-				the tree we get will have no right child tree.*/
 				root = Splay(key, root->lchild);
 				root->rchild = temp->rchild;
 			}
 			free(temp);
-			return root;
+			return;
 		}
 	}
 
-	splay<T>* Search(T key, splay<T>* root)
+	splay<T>* Search(T key, splay<T>*& root)
 	{
 		return Splay(key, root);
 	}
 
 	void InOrder(splay<T>* root)
 	{
-		if (root)
-		{
-			InOrder(root->lchild);
-			cout << "key: " << root->key;
-			if (root->lchild)
-				cout << " | left child: " << root->lchild->key;
-			if (root->rchild)
-				cout << " | right child: " << root->rchild->key;
-			cout << "\n";
-			InOrder(root->rchild);
-		}
+		if (root) {
+                cout << root->key << " ";
+                if (!root->lchild) cout << -1 << " ";
+                else cout << root->lchild->key << " ";
+                if (!root->rchild) cout << -1 << " ";
+                else cout << root->rchild->key << " ";
+                cout << endl;
+                InOrder(root->lchild);
+                InOrder(root->rchild);
+            } 
 	}
 };
 
